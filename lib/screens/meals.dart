@@ -1,5 +1,8 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meals/screens/meals_detail.dart';
 import 'package:meals/widgets/meal_item.dart';
 
 import '../models/meal.dart';
@@ -9,6 +12,17 @@ class MealsScreen extends StatelessWidget {
 
   final String title;
   final List<Meal> meals;
+
+  void selectMeal(BuildContext context, Meal meal) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (ctx) => MealsDetailsScreen(
+          meal: meal,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +50,11 @@ class MealsScreen extends StatelessWidget {
     if (meals.isNotEmpty) {
       content = ListView.builder(
           itemCount: meals.length,
-          itemBuilder: (ctx, index) => MealItam(meal: meals[index]));
+          itemBuilder: (ctx, index) =>
+              MealItam(meal: meals[index],  onSelectedMeal: (meal){
+                selectMeal(context,meal);
+              },)
+      );
     }
 
     return Scaffold(
