@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meals/models/meal.dart';
 
 class MealItemTrait extends StatelessWidget {
-  MealItemTrait({super.key, required this.icon, required this.label});
+  const MealItemTrait({super.key, required this.icon, required this.label});
 
   final IconData icon;
   final String label;
@@ -17,12 +15,12 @@ class MealItemTrait extends StatelessWidget {
           size: 17,
           color: Colors.white,
         ),
-        SizedBox(
+        const SizedBox(
           width: 6,
         ),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),

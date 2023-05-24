@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meals/models/meal.dart';
 import 'package:meals/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItam extends StatelessWidget {
-  MealItam({super.key, required this.meal, required this.onSelectedMeal});
+  const MealItam({super.key, required this.meal, required this.onSelectedMeal});
 
   final Meal meal;
   final void Function(Meal meal) onSelectedMeal;
@@ -23,12 +22,12 @@ class MealItam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: (){
+        onTap: () {
           onSelectedMeal(meal);
         },
         child: Stack(
@@ -46,7 +45,8 @@ class MealItam extends StatelessWidget {
                 right: 0,
                 child: Container(
                   color: Colors.black54,
-                  padding: EdgeInsets.symmetric(vertical: 6, horizontal: 44),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 6, horizontal: 44),
                   child: Column(
                     children: [
                       Text(
@@ -55,12 +55,12 @@ class MealItam extends StatelessWidget {
                         textAlign: TextAlign.center,
                         softWrap: true,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 12,
                       ),
                       Row(
@@ -69,12 +69,12 @@ class MealItam extends StatelessWidget {
                           MealItemTrait(
                               icon: Icons.schedule,
                               label: '${meal.duration} min'),
-                          SizedBox(
+                          const SizedBox(
                             width: 12,
                           ),
                           MealItemTrait(
                               icon: Icons.work, label: affordabilityText),
-                          SizedBox(
+                          const SizedBox(
                             width: 12,
                           ),
                           MealItemTrait(

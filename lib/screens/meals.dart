@@ -1,6 +1,3 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meals/screens/meals_detail.dart';
 import 'package:meals/widgets/meal_item.dart';
@@ -8,7 +5,11 @@ import 'package:meals/widgets/meal_item.dart';
 import '../models/meal.dart';
 
 class MealsScreen extends StatelessWidget {
-  MealsScreen({super.key, this.title, required this.meals, required this.onToggleFavourite});
+  const MealsScreen(
+      {super.key,
+      this.title,
+      required this.meals,
+      required this.onToggleFavourite});
 
   final String? title;
   final List<Meal> meals;
@@ -19,7 +20,8 @@ class MealsScreen extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (ctx) => MealsDetailsScreen(
-          meal: meal, onToggleFavourite: onToggleFavourite,
+          meal: meal,
+          onToggleFavourite: onToggleFavourite,
         ),
       ),
     );
@@ -35,7 +37,7 @@ class MealsScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   )),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Text(
@@ -51,14 +53,15 @@ class MealsScreen extends StatelessWidget {
     if (meals.isNotEmpty) {
       content = ListView.builder(
           itemCount: meals.length,
-          itemBuilder: (ctx, index) =>
-              MealItam(meal: meals[index],  onSelectedMeal: (meal){
-                selectMeal(context,meal);
-              },)
-      );
+          itemBuilder: (ctx, index) => MealItam(
+                meal: meals[index],
+                onSelectedMeal: (meal) {
+                  selectMeal(context, meal);
+                },
+              ));
     }
 
-    if(title==null){
+    if (title == null) {
       return content;
     }
 
